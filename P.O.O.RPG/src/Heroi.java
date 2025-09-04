@@ -7,8 +7,13 @@ public abstract class Heroi extends Personagem {
         this.experiencia = experiencia;
     }
 
-    private void ganharExperiencia(int expGanha) {
-        experiencia = experiencia + expGanha;    
+    private int redefinirNivel(int experiencia) {
+        return experiencia/10;
+    }
+
+    public void ganharExperiencia(int expGanha) {
+        experiencia = experiencia + expGanha;
+        nivel = nivel + redefinirNivel(experiencia); 
     }
 
     @Override

@@ -9,6 +9,6 @@ public abstract class Monstro extends Personagem {
     @Override
     public void exibirStatus(Personagem alvo) {
         super.exibirStatus(alvo);
-        System.out.println("Experiencia Concedida: " + this.xpConcedido);
+        System.out.println("Experiencia Concedida ao morrer: " + this.xpConcedido);
     }
 }
