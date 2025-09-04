@@ -1,3 +1,6 @@
+// Classe concreta que representa um herói do tipo Monge.
+// Implementa habilidades específicas de monge.
+
 public class Monge extends Heroi{
     private int ataquesAdicionais, dano;
 
@@ -7,8 +10,8 @@ public class Monge extends Heroi{
         this.dano = 6 + forca;
     }
 
-    public void atacar(int dano, Personagem alvo) {
-        System.out.println("O Monge acerta um golpe desarmado em " + alvo + " e causa: " + dano + " de dano");
+    public void atacar(Personagem alvo) {
+        System.out.println("O Monge acerta um golpe desarmado em " + alvo.getNome() + " e causa: " + dano + " de dano");
         receberDano(dano, alvo);
     }
 
@@ -16,7 +19,7 @@ public class Monge extends Heroi{
         System.out.println("O Monge respira fundo e da uma enchurada de golpes no inimigo");
         int i;
         for (i=0; i < ataquesAdicionais; i++) {
-            atacar(dano, alvo);
+            atacar(alvo);
         }
     }
 }

@@ -1,3 +1,6 @@
+// Classe concreta que representa um herói do tipo Mago.
+// Implementa habilidades específicas de mago.
+
 public class Mago extends Heroi{
     private int mana, dano, BolaDeFogo = 20;
 
@@ -25,7 +28,7 @@ public class Mago extends Heroi{
         }
         else {
             System.out.println("A mana do Mago acabou...");
-            System.out.println("O Mago acerta " + alvo + " com o seu cajado");
+            System.out.println("O Mago acerta " + alvo.getNome() + " com o seu cajado");
             System.out.println(".............");
             System.out.println("Não parece muito efetivo");
             receberDano(BolaDeFogo, alvo);

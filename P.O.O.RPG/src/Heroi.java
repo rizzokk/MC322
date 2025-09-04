@@ -1,3 +1,6 @@
+// Classe abstrata que representa heróis jogáveis no RPG.
+// Herda de Personagem e adiciona lógica de experiência, nível e habilidades especiais.
+
 public abstract class Heroi extends Personagem {
     private int nivel , experiencia;
 
@@ -8,7 +11,7 @@ public abstract class Heroi extends Personagem {
     }
 
     private int redefinirNivel(int experiencia) {
-        return experiencia/10;
+        return experiencia/100;
     }
 
     public void ganharExperiencia(int expGanha) {
