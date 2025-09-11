@@ -2,22 +2,52 @@
 // Herda de Personagem e adiciona lógica de experiência, nível e habilidades especiais.
 
 public abstract class Heroi extends Personagem {
-    private int nivel , experiencia;
+    private int nivel , experiencia, expProximoNivel;
+	private double sorte;
 
-    public Heroi(String nome, int pontosDeVida, int forca, int nivel, int experiencia) {
-        super(nome, pontosDeVida, forca);
+    public Heroi(String nome, int pontosDeVida, int forca, int nivel, int experiencia, Arma arma, double sorte) {
+        super(nome, pontosDeVida, forca, arma);
         this.nivel = nivel;
         this.experiencia = experiencia;
+		this.expProximoNivel = 100;
+		sorte = Math.random();
     }
 
-    private int redefinirNivel(int experiencia) {
-        return experiencia/100;
+    private void subirDeNivel() {
+		if (experiencia >= expProximoNivel) {
+			experiencia = experiencia - expProximoNivel;
+			expProximoNivel = expProximoNivel+(expProximoNivel*1/10);
+			nivel++;
+		}
     }
+
+	public double getSorte() {
+		return this.sorte;
+	}
 
     public void ganharExperiencia(int expGanha) {
         experiencia = experiencia + expGanha;
-        nivel = nivel + redefinirNivel(experiencia); 
+        subirDeNivel(); 
     }
+
+	public void equiparArma(Arma novaArma) {
+		if (novaArma.getminNivel() <= this.nivel) {
+			if(checkArma()) {
+				if( novaArma.getDano() > getArma().getDano() ) {
+					setArma(novaArma);
+					System.out.println("Arma " + novaArma.getNomeArma() + " equipada com sucesso!");
+				} else {
+					System.out.println("A arma " + novaArma.getNomeArma() + " não é melhor que a arma atual.");
+				}
+			} else {
+				setArma(novaArma);
+				System.out.println("Arma " + novaArma.getNomeArma() + " equipada com sucesso!");
+			}
+		}
+		else {
+			System.out.println("Nivel insuficiente para equipar a arma " + novaArma.getNomeArma() + ".");
+		}
+	}
 
     @Override
     public void exibirStatus(Personagem alvo){
@@ -26,5 +56,4 @@ public abstract class Heroi extends Personagem {
     }
     
     public abstract void usarHabilidadeEspecial(Personagem alvo);
-
 }

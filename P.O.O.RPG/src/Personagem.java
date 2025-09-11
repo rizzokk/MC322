@@ -5,8 +5,9 @@
 public abstract class Personagem {
     private String nome;
     private int forca, pontosDeVida;
+	private Arma arma;
 
-    public Personagem(String nome, int pontosDeVida, int forca) {
+    public Personagem(String nome, int pontosDeVida, int forca, Arma arma) {
         this.nome = nome;
         this.forca = forca;
         this.pontosDeVida = pontosDeVida;
@@ -24,8 +25,28 @@ public abstract class Personagem {
         System.out.println("Nome do Personagem: " + alvo.nome);
         System.out.println("Pontos de Vida: " + alvo.pontosDeVida);
         System.out.println("Força: " + alvo.forca);
+		if (alvo.arma != null) {
+			System.out.println("Arma equipada: " + alvo.arma.getNomeArma());
+		} else {
+			System.out.println("Nenhuma arma equipada.");
+		}
     }
 
+	public boolean checkArma() {
+		if (this.arma != null) {
+			return true;
+		}
+		return false;
+	}
+
+	public Arma getArma() {
+		return this.arma;
+	}
+
+	public void setArma(Arma arma) {
+		this.arma = arma;
+	}
+	
 	public String getNome() {
    		return this.nome;
 	}

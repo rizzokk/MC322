@@ -4,10 +4,10 @@
 public class Monge extends Heroi{
     private int ataquesAdicionais, dano;
 
-    public Monge(String nome, int pontosDeVida, int forca, int nivel, int experiencia) {
-        super(nome, pontosDeVida, forca, nivel, experiencia);
+    public Monge(String nome, int pontosDeVida, int forca, int nivel, int experiencia, Arma arma) {
+        super(nome, pontosDeVida, forca, nivel, experiencia, arma);
         this.ataquesAdicionais = nivel + 1;
-        this.dano = 6 + forca;
+        this.dano = 6 + forca + arma.getDano();
     }
 
     public void atacar(Personagem alvo) {
