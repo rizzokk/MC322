@@ -1,6 +1,6 @@
 public class OssoGigante extends Arma {
 	
-	public OssoGigante(int minNivel, int dano)	{
-		super(minNivel, dano);
+	public OssoGigante(String nomeArma, int minNivel, int dano)	{
+		super(nomeArma,minNivel, dano);
 	}
 }

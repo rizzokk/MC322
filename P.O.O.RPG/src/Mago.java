@@ -4,10 +4,10 @@
 public class Mago extends Heroi{
     private int mana, dano, BolaDeFogo = 50;
 
-    public Mago(String nome, int pontosDeVida, int forca, int nivel, int experiencia, Arma arma, double sorte) {
-        super(nome, pontosDeVida, forca, nivel, experiencia, arma, sorte);
+    public Mago(String nome, int pontosDeVida, int forca, int nivel, int experiencia) {
+        super(nome, pontosDeVida, forca, nivel, experiencia);
         this.mana = nivel + 1;
-        this.dano = 1 + forca + arma.getDano();
+        this.dano = 1 + forca + getArma().getDano();
     }
 
     public void atacar(Personagem alvo) {

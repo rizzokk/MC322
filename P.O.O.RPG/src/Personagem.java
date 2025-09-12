@@ -7,10 +7,11 @@ public abstract class Personagem {
     private int forca, pontosDeVida;
 	private Arma arma;
 
-    public Personagem(String nome, int pontosDeVida, int forca, Arma arma) {
+    public Personagem(String nome, int pontosDeVida, int forca) {
         this.nome = nome;
         this.forca = forca;
         this.pontosDeVida = pontosDeVida;
+		arma = null;
     }
 
     private void DiminuirVida(int dano, Personagem alvo) {
@@ -49,6 +50,14 @@ public abstract class Personagem {
 	
 	public String getNome() {
    		return this.nome;
+	}
+
+	public int getForca() {
+		return this.forca;
+	}
+
+	public void setForca(int forca) {
+		this.forca = forca;
 	}
 
 	public boolean estaVivo(Personagem alvo) {

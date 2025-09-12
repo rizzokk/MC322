@@ -11,19 +11,31 @@ public class Fase {
 		this.monstro = new ArrayList<Monstro>();
 	}
 
+	public String getAmbiente() {
+		return this.ambiente;
+	}
+
+	public int getNivelFase() {
+		return this.nivel;
+	}
+
+	public ArrayList<Monstro> getMonstros() {
+		return monstro;
+	}
+
 	public Fase getFase(int nivel, String ambiente) {
 		Fase fase = new Fase(nivel, ambiente);
 		for (int i = 0; i <= nivel + 2; i++) {
 			if (i < 5) {
-				Esqueleto esqueleto = new Esqueleto("esqueleto", 55, 10, 25);
+				Esqueleto esqueleto = new Esqueleto("esqueleto", 23, 3, 25);
 				monstro.add(esqueleto);
 			}
 			else if (5 <= i && i < 7) {
-				Esqueleto esqueleto = new Esqueleto("esqueleto gigante", 110, 15, 75);
+				Esqueleto esqueleto = new Esqueleto("esqueleto gigante", 110, 8, 75);
 				monstro.add(esqueleto);
 			}
 			else {
-				Cultista cultista = new Cultista("Sombra", 100, 25, 100);
+				Cultista cultista = new Cultista("Sombra", 100, 15, 100);
 				monstro.add(cultista);
 			}
 		}

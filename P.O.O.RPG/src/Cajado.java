@@ -1,6 +1,6 @@
 public class Cajado extends Arma {
 	
-	public Cajado(int minNivel, int dano)	{
-		super(minNivel, dano);
+	public Cajado(String nomeArma, int minNivel, int dano)	{
+		super(nomeArma, minNivel, dano);
 	}	
 }

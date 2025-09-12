@@ -1,14 +1,13 @@
 // Classe principal do RPG.
 // Responsável por iniciar o jogo, criar personagens, monstros e controlar o fluxo da batalha.
-
+import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args) {
-		//Mago mago = new Mago("Severus Snape", 100, 15, 1, 0);
-		Monge monge = new Monge("Shang Chi", 80, 10, 1, 0);
-		Esqueleto esqueleto = new Esqueleto("esqueleto(com capacete de couro)", 55, 10, 25);
-		Esqueleto esqueleto2 = new Esqueleto("esqueleto(com espada de bronze)", 45, 15, 25);
-		Cultista cultista = new Cultista("Sombra", 100, 12, 50);
+		//Mago mago = new Mago("Severus Snape", 800, 15, 1, 0);
+		Monge monge = new Monge("Shang Chi", 170, 20, 1, 0);
+
+		ArrayList<Fase> fases = ConstrutorDeCenario.gerarFases(10);
 
 		
 		System.out.println(
@@ -22,44 +21,51 @@ public class Main {
 		+ "percebendo as intenções do necromante, o monge decide enfrentá-lo.\n"
 		+ "O necromante então invoca dois esqueletos para lutar contra o monge.\n");
 		
-		Monstro[] monstros = {esqueleto, esqueleto2, cultista};
 		
 		System.out.println("--------「A BATALHA COMEÇA」--------");
-		
-		for (Monstro monstro : monstros) {
-			while (monge.estaVivo(monge) && monstro.estaVivo(monstro)) {
-				System.out.println("Um " + monstro.getNome() + " aparece!");
-				monge.usarHabilidadeEspecial(monstro);
-				if (monstro.estaVivo(monstro)) {
-					monstro.atacar(monge);
+		for (Fase fase : fases) {
+			for (Monstro monstro : fase.getMonstros()) {
+				while (monge.estaVivo(monge) && monstro.estaVivo(monstro)) {
+					System.out.println("Um " + monstro.getNome() + " aparece!");
+					monge.usarHabilidadeEspecial(monstro);
+					if (monstro.estaVivo(monstro)) {
+						monstro.atacar(monge);
+					}
+					
+					if (!monge.estaVivo(monge)) {
+						System.out.println("O Monge foi derrotado...\n" +
+						"--------「Game Over」--------\n");
+					} 
+					
+					else if (!monstro.estaVivo(monstro)) {
+						System.out.println("✺ O Monge derrotou o " + monstro.getNome() + " e ganhou " + monstro.getXpConcedido() + " de experiência ✺");
+						monge.ganharExperiencia(monstro.getXpConcedido());
+						if (monge.setSorte() > 0.5) {
+							monge.equiparArma(monstro.largarArma());
+						}
+						else {
+							System.out.println("O monstro não deixou nada para trás");
+						}
+					}
+					
+					System.out.println("\n");
+					System.out.println("--------STATUS DO HEROI--------\n");
+					monge.exibirStatus(monge);
+					System.out.println("\n");
+					System.out.println("--------STATUS DO MONSTRO--------\n");
+					monstro.exibirStatus(monstro);
+					System.out.println("----------------------------------");
+					System.out.println("\n");
+					
 				}
-
 				if (!monge.estaVivo(monge)) {
-					System.out.println("O Monge foi derrotado...\n" +
-					"____Game Over____");
-				} 
-
-				else if (!monstro.estaVivo(monstro)) {
-					System.out.println("✺ O Monge derrotou o " + monstro.getNome() + " e ganhou " + monstro.getXpConcedido() + " de experiência ✺");
-					monge.ganharExperiencia(monstro.getXpConcedido());
-				}
-
-				System.out.println("\n");
-				System.out.println("--------STATUS DO HEROI--------\n");
-				monge.exibirStatus(monge);
-				System.out.println("\n");
-				System.out.println("--------STATUS DO MONSTRO--------\n");
-				monstro.exibirStatus(monstro);
-				System.out.println("----------------------------------");
-				System.out.println("\n");
-
-			}
-			if (!monge.estaVivo(monge)) {
 					break;
+				}	
 			}
-
-
+			
 		}
-
+		if (monge.estaVivo(monge)) {
+			System.out.println("--------「	VITORIA DO MONGE	」--------\n");
+		}
 	}
 }

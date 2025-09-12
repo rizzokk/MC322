@@ -5,8 +5,8 @@ public abstract class Heroi extends Personagem {
     private int nivel , experiencia, expProximoNivel;
 	private double sorte;
 
-    public Heroi(String nome, int pontosDeVida, int forca, int nivel, int experiencia, Arma arma, double sorte) {
-        super(nome, pontosDeVida, forca, arma);
+    public Heroi(String nome, int pontosDeVida, int forca, int nivel, int experiencia) {
+        super(nome, pontosDeVida, forca);
         this.nivel = nivel;
         this.experiencia = experiencia;
 		this.expProximoNivel = 100;
@@ -18,11 +18,17 @@ public abstract class Heroi extends Personagem {
 			experiencia = experiencia - expProximoNivel;
 			expProximoNivel = expProximoNivel+(expProximoNivel*1/10);
 			nivel++;
+			setForca(getForca()+1);
 		}
     }
 
 	public double getSorte() {
 		return this.sorte;
+	}
+
+	public double setSorte() {
+		this.sorte = Math.random();
+		return this.sorte; 
 	}
 
     public void ganharExperiencia(int expGanha) {
@@ -52,6 +58,7 @@ public abstract class Heroi extends Personagem {
     @Override
     public void exibirStatus(Personagem alvo){
         super.exibirStatus(alvo);
+		System.out.println("Nivel: " + this.nivel);
         System.out.println("Experiencia: " + this.experiencia);
     }
     

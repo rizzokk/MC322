@@ -1,6 +1,6 @@
 public class Bracadeiras extends Arma {
 	
-	public Bracadeiras(int minNivel, int dano)	{
-		super(minNivel, dano);
+	public Bracadeiras(String nomeArma, int minNivel, int dano)	{
+		super(nomeArma, minNivel, dano);
 	}
 }
