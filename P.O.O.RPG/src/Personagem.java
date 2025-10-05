@@ -2,7 +2,7 @@
 // Define atributos comuns e métodos essenciais para manipulação de vida, dano e status.
 // Outras classes como Heroi e Monstro herdam desta classe.
 
-public abstract class Personagem {
+public abstract class Personagem implements Combatente{
     private String nome;
     private int forca, pontosDeVida;
 	private Arma arma;
@@ -14,20 +14,28 @@ public abstract class Personagem {
 		arma = null;
     }
 
-    private void DiminuirVida(int dano, Personagem alvo) {
-        alvo.pontosDeVida = alvo.pontosDeVida - dano;
+    private void DiminuirVida(int dano) {
+        this.pontosDeVida = this.pontosDeVida - dano;
     }
 
-    public void receberDano(int dano, Personagem alvo) {
-        DiminuirVida(dano, alvo);
+    public void receberDano(int dano) {
+        DiminuirVida(dano);
     }
 
-    public void exibirStatus(Personagem alvo) {
-        System.out.println("Nome do Personagem: " + alvo.nome);
-        System.out.println("Pontos de Vida: " + alvo.pontosDeVida);
-        System.out.println("Força: " + alvo.forca);
-		if (alvo.arma != null) {
-			System.out.println("Arma equipada: " + alvo.arma.getNomeArma());
+	private void AumentarVida(int cura) {
+		this.pontosDeVida = this.pontosDeVida + cura;
+	}
+
+	public void receberCura(int cura) {
+		AumentarVida(cura);
+	}
+
+    public void exibirStatus() {
+        System.out.println("Nome do Personagem: " + this.nome);
+        System.out.println("Pontos de Vida: " + this.pontosDeVida);
+        System.out.println("Força: " + this.forca);
+		if (this.arma != null) {
+			System.out.println("Arma equipada: " + this.arma.getNome());
 		} else {
 			System.out.println("Nenhuma arma equipada.");
 		}
@@ -68,5 +76,7 @@ public abstract class Personagem {
 		return false;
 	}
 
-    public abstract void atacar(Personagem alvo);
+    public abstract void atacar(Combatente alvo);
+
+	public abstract void escolherAcao(Combatente alvo);
 }

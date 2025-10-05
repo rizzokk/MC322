@@ -1,4 +1,4 @@
-public abstract class Arma {
+public abstract class Arma implements Item {
 
 	private String nomeArma;
 	private int minNivel;
@@ -18,7 +18,7 @@ public abstract class Arma {
 		return dano;
 	}
 
-	public String getNomeArma() {
+	public String getNome() {
 		return nomeArma;
 	}
 }

@@ -1,8 +1,15 @@
 // Classe concreta que representa um herói do tipo Monge.
 // Implementa habilidades específicas de monge.
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Monge extends Heroi{
     private int ataquesAdicionais, dano;
+    private List<AcaoDeCombate> acoes;
+    private SocoVeloz ataqueVeloz;
+    private EnxuradaDeGolpes ataquesMultiplos;
 
     public Monge(String nome, int pontosDeVida, int forca, int nivel, int experiencia) {
         super(nome, pontosDeVida, forca, nivel, experiencia);
@@ -13,11 +20,21 @@ public class Monge extends Heroi{
         else {
             this.dano = 6 + forca; 
         }
+        acoes = new ArrayList<>();
+        ataqueVeloz = new SocoVeloz("Soco Veloz");
+        acoes.add(ataqueVeloz);
+        ataquesMultiplos = new EnxuradaDeGolpes("Enxurada de Golpes", setSorte(), ataquesAdicionais);
+        acoes.add(ataquesMultiplos);
     }
 
-    public void atacar(Personagem alvo) {
+    public void escolherAcao(Combatente alvo) {
+        Random aleatorio = new Random();
+        acoes.get(aleatorio.nextInt(acoes.size() - 1)).executar(this, alvo);
+    }
+    
+    public void atacar(Combatente alvo) {
         System.out.println("O Monge acerta um golpe desarmado em " + alvo.getNome() + " e causa: " + dano + " de dano");
-        receberDano(dano, alvo);
+        alvo.receberDano(dano);
     }
 
     public void usarHabilidadeEspecial(Personagem alvo) {
@@ -39,7 +56,7 @@ public class Monge extends Heroi{
             int i;
             for (i=0; i < ataquesAdicionais; i++) {
                 System.out.println("O Monge acerta um golpe desarmado em " + alvo.getNome() + " e causa: " + dano*3 + " de dano");
-                receberDano(dano*3 , alvo);
+                alvo.receberDano(dano*3);
             }
         }
     }

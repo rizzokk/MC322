@@ -1,7 +1,7 @@
 // Classe abstrata que representa heróis jogáveis no RPG.
 // Herda de Personagem e adiciona lógica de experiência, nível e habilidades especiais.
 
-public abstract class Heroi extends Personagem {
+public abstract class Heroi extends Personagem{
     private int nivel , experiencia, expProximoNivel;
 	private double sorte;
 
@@ -41,23 +41,23 @@ public abstract class Heroi extends Personagem {
 			if(checkArma()) {
 				if( novaArma.getDano() > getArma().getDano() ) {
 					setArma(novaArma);
-					System.out.println("Arma " + novaArma.getNomeArma() + " equipada com sucesso!");
+					System.out.println("Arma " + novaArma.getNome() + " equipada com sucesso!");
 				} else {
-					System.out.println("A arma " + novaArma.getNomeArma() + " não é melhor que a arma atual.");
+					System.out.println("A arma " + novaArma.getNome() + " não é melhor que a arma atual.");
 				}
 			} else {
 				setArma(novaArma);
-				System.out.println("Arma " + novaArma.getNomeArma() + " equipada com sucesso!");
+				System.out.println("Arma " + novaArma.getNome() + " equipada com sucesso!");
 			}
 		}
 		else {
-			System.out.println("Nivel insuficiente para equipar a arma " + novaArma.getNomeArma() + ".");
+			System.out.println("Nivel insuficiente para equipar a arma " + novaArma.getNome() + ".");
 		}
 	}
 
     @Override
-    public void exibirStatus(Personagem alvo){
-        super.exibirStatus(alvo);
+    public void exibirStatus(){
+        super.exibirStatus();
 		System.out.println("Nivel: " + this.nivel);
         System.out.println("Experiencia: " + this.experiencia);
     }
