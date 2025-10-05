@@ -1,3 +1,5 @@
+//Ação de Combate para o Cultista
+
 public class PraguejarMaldicoes implements AcaoDeCombate {
     private String nomeAtaque;
 

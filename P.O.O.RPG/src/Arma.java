@@ -1,3 +1,5 @@
+// Item do tipo arma que pode ser dropada de um monstro e equipada pelo heroi
+
 public abstract class Arma implements Item {
 
 	private String nomeArma;

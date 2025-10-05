@@ -1,3 +1,6 @@
+// Classe concreta que representa um monstro do tipo Esqueleto.
+// Define comportamentos e características específicas de Esqueletos.
+
 import java.util.ArrayList;
 import java.util.Random;
 

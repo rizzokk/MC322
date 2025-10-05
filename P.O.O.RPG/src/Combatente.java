@@ -1,3 +1,5 @@
+// Interface que determina metodos basicos para todos os Personagens
+
 public interface Combatente {
     public String getNome();
     public boolean estaVivo(Personagem alvo);

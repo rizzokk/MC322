@@ -1,3 +1,5 @@
+//Ação de Combate do esqueleto
+
 public class AtaqueAmplo implements AcaoDeCombate {
     private String nomeAtaque;
     public AtaqueAmplo(String nomeAtaque) {

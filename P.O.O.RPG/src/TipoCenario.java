@@ -1,3 +1,5 @@
+// Enum que define os tipos de cenarios de uma fase, sua descrição e seu nome
+
 public enum TipoCenario {
     
     FLORESTA("Era uma noite escura, o céu estava coberto de nuvens e a lua não podia ser vista,\n"

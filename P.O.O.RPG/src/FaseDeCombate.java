@@ -1,3 +1,5 @@
+// Classe concreta que determina metodos e atributos basicos para as fases de combate
+
 import java.util.ArrayList;
 
 public class FaseDeCombate implements Fase {
@@ -36,6 +38,10 @@ public class FaseDeCombate implements Fase {
 		System.out.println("\n");
 		System.out.println(ambiente.getDescricao());
 		System.out.println("\n");
+		Evento armadilha = new ArmadilhaDePedras(50, Math.random());
+		if (armadilha.verificarGatilho(ambiente) && heroi.estaVivo(heroi)) {
+				armadilha.executar(heroi);
+			}
 		for (Monstro monstroAtual : monstro) {
 			while (heroi.estaVivo(heroi) && monstroAtual.estaVivo(monstroAtual)) {
 				System.out.println("Um " + monstroAtual.getNome() + " aparece!");

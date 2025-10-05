@@ -8,16 +8,17 @@ public class Main {
 		GeradorDeFases gerador = new ConstrutorDeCenarioFixo(3);
 		ArrayList<FaseDeCombate> fases = gerador.gerar(3);
 		
-		Monge monge = new Monge("Shang Chi", 170, 15, 1, 0);
+		Monge monge = new Monge("Shang Chi", 170, 20, 1, 0);
 		
 		System.out.println("\n");
 		System.out.println("--------「A BATALHA COMEÇA」--------");
 		System.out.println("\n");
 		for (FaseDeCombate fase : fases) {
 			fase.iniciar(monge);
+			
 			if (!monge.estaVivo(monge)) {
 				break;
-			}	
+			}
 		}
 		if (monge.estaVivo(monge)) {
 			System.out.println("--------「VITORIA DO MONGE」--------\n");

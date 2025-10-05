@@ -1,3 +1,5 @@
+//Ação de Combate padrão de todos os Combatentes
+
 public class AtaqueFisico implements AcaoDeCombate {
     private String nomeAtaque;
 

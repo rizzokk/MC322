@@ -1,3 +1,5 @@
+//Ação de Combate do monge
+
 public class EnxuradaDeGolpes implements AcaoDeCombate {
     private String nomeAtaque;
     private double sorte;

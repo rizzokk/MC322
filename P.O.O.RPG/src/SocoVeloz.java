@@ -1,3 +1,5 @@
+//Ação de Combate para o monge
+
 public class SocoVeloz implements AcaoDeCombate {
     private String nomeAtaque;
     public SocoVeloz(String nomeAtaque) {

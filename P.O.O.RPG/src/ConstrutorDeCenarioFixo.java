@@ -1,3 +1,5 @@
+// Controe um determinado numero de fases e os armazena em uma lista
+
 import java.util.ArrayList;
 
 public class ConstrutorDeCenarioFixo implements GeradorDeFases {
