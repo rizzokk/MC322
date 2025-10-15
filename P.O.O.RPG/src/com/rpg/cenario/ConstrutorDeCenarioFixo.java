@@ -15,12 +15,12 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
 		return nFases;
 	}
 
-	public ArrayList<FaseDeCombate> gerar(int nFases) {
+	public ArrayList<FaseDeCombate> gerar(int nFases, Dificuldade dificuldade) {
 		ArrayList<FaseDeCombate> fases = new ArrayList<FaseDeCombate>();
-		FaseDeCombate fase = new FaseDeCombate(0, TipoCenario.FLORESTA);
+		FaseDeCombate fase = new FaseDeCombate(0, TipoCenario.FLORESTA, dificuldade);
 		
 		for (int i = 0; i < nFases; i++) {
-			fase = fase.getFase(i,TipoCenario.values()[i]);
+			fase = fase.getFase(i,TipoCenario.values()[i], dificuldade);
 			fases.add(fase);
 		}
 

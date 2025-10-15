@@ -6,15 +6,18 @@ package com.rpg.game;
 import java.util.ArrayList;
 import com.rpg.cenario.*;
 import com.rpg.personagem.*;
+import com.rpg.exceptions.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 
 		GeradorDeFases gerador = new ConstrutorDeCenarioFixo(3);
-		ArrayList<FaseDeCombate> fases = gerador.gerar(3);
+		Dificuldade dificuldadeFase = MenuPrincipal.MenuInicial();
+		ArrayList<FaseDeCombate> fases = gerador.gerar(3, dificuldadeFase);
 		
-		Monge monge = new Monge("Shang Chi", 170, 20, 1, 0);
+		Monge monge = new Monge("Shang Chi", 100, 20, 1, 0);
+		monge = VerificarMonge.VerificarExistencia(monge);
 		
 		System.out.println("\n");
 		System.out.println("--------「A BATALHA COMEÇA」--------");
@@ -27,7 +30,7 @@ public class Main {
 			}
 		}
 		if (monge.estaVivo(monge)) {
-			System.out.println("--------「VITORIA DO MONGE」--------\n");
+			System.out.println("--------「VITORIA DO HEROI」--------\n");
 		}
 	}
 }

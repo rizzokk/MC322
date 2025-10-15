@@ -2,6 +2,8 @@
 
 package com.rpg.combate;
 
+import com.rpg.personagem.Combatente;
+
 public class SocoVeloz implements AcaoDeCombate {
     private String nomeAtaque;
     public SocoVeloz(String nomeAtaque) {

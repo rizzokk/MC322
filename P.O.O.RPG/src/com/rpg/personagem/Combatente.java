@@ -1,8 +1,6 @@
 // Interface que determina metodos basicos para todos os Personagens
 
-package com.rpg.combate;
-
-import com.rpg.personagem.Personagem;
+package com.rpg.personagem;
 
 public interface Combatente {
     public String getNome();

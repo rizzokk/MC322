@@ -8,17 +8,22 @@ import com.rpg.personagem.Cultista;
 import com.rpg.personagem.Esqueleto;
 import com.rpg.personagem.Heroi;
 import com.rpg.personagem.Monstro;
+import com.rpg.game.MenuPrincipal;
+import com.rpg.itens.*;
+import com.rpg.exceptions.*;
 
 public class FaseDeCombate implements Fase {
 
 	private int nivel;
 	private TipoCenario ambiente;
 	private ArrayList<Monstro> monstro;
+	private Dificuldade dificuldade;
 	
-	public FaseDeCombate(int nivel, TipoCenario ambiente) {
+	public FaseDeCombate(int nivel, TipoCenario ambiente, Dificuldade dificuldade) {
 		this.nivel = nivel;
 		this.ambiente = ambiente;
 		this.monstro = new ArrayList<Monstro>();
+		this.dificuldade = dificuldade;
 	}
 
 	public TipoCenario getAmbiente() {
@@ -31,6 +36,10 @@ public class FaseDeCombate implements Fase {
 
 	public ArrayList<Monstro> getMonstros() {
 		return monstro;
+	}
+
+	public Dificuldade getDificuldade() {
+		return dificuldade;
 	}
 
 	public boolean isConcluida() {
@@ -46,6 +55,7 @@ public class FaseDeCombate implements Fase {
 		System.out.println(ambiente.getDescricao());
 		System.out.println("\n");
 		Evento armadilha = new ArmadilhaDePedras(50, Math.random());
+		Arma drop = null;
 		if (armadilha.verificarGatilho(ambiente) && heroi.estaVivo(heroi)) {
 				armadilha.executar(heroi);
 			}
@@ -66,7 +76,8 @@ public class FaseDeCombate implements Fase {
 					System.out.println("✺ O Monge derrotou o " + monstroAtual.getNome() + " e ganhou " + monstroAtual.getXpConcedido() + " de experiência ✺");
 					heroi.ganharExperiencia(monstroAtual.getXpConcedido());
 					if (heroi.setSorte() > 0.5) {
-						heroi.equiparArma(monstroAtual.droparLoot());
+						drop = monstroAtual.droparLoot();
+						System.out.println("O monstro deixou algo para trás");
 					}
 					else {
 						System.out.println("O monstro não deixou nada para trás");
@@ -85,7 +96,10 @@ public class FaseDeCombate implements Fase {
 			}
 			if (!heroi.estaVivo(heroi)) {
 				break;
-			}	
+			}
+
+			MenuPrincipal.PosTurno(heroi, drop);
+
 		}
 	}
 
@@ -93,19 +107,21 @@ public class FaseDeCombate implements Fase {
 		return cenario.getDescricao();
 	}
 
-	public FaseDeCombate getFase(int nivel, TipoCenario ambiente) {
-		FaseDeCombate fase = new FaseDeCombate(nivel, ambiente);
-		for (int i = 0; i <= nivel + 1; i++) {
+	public FaseDeCombate getFase(int nivel, TipoCenario ambiente, Dificuldade dificuldade) {
+		FaseDeCombate fase = new FaseDeCombate(nivel, ambiente, dificuldade);
+		for (int i = 0; i <= dificuldade.getQuantMontros(); i++) {
 			if (i < 2) {
-				Esqueleto esqueleto = new Esqueleto("esqueleto", 23, 3, 25);
+				Esqueleto esqueleto = new Esqueleto("esqueleto", 25*dificuldade.getMultDificuldade(), 1*dificuldade.getMultDificuldade(), 25*dificuldade.getMultXP());
+				esqueleto = VerificarEsqueleto.VerificarExistencia(esqueleto);
 				fase.monstro.add(esqueleto);
 			}
 			else if (2 <= i && i < 4) {
-				Esqueleto esqueleto = new Esqueleto("esqueleto gigante", 110, 8, 75);
+				Esqueleto esqueleto = new Esqueleto("esqueleto gigante", 40*dificuldade.getMultDificuldade(), 3*dificuldade.getMultDificuldade(), 75*dificuldade.getMultXP());
+				esqueleto = VerificarEsqueleto.VerificarExistencia(esqueleto);
 				fase.monstro.add(esqueleto);
 			}
 			else {
-				Cultista cultista = new Cultista("Sombra", 100, 15, 100);
+				Cultista cultista = new Cultista("Sombra", 50*dificuldade.getMultDificuldade(), 5*dificuldade.getMultDificuldade(), 100*dificuldade.getMultXP());
 				fase.monstro.add(cultista);
 			}
 		}

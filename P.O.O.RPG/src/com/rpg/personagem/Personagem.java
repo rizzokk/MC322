@@ -4,7 +4,6 @@
 
 package com.rpg.personagem;
 
-import com.rpg.combate.Combatente;
 import com.rpg.itens.Arma;
 
 public abstract class Personagem implements Combatente{

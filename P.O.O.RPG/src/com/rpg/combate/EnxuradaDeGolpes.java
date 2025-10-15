@@ -2,6 +2,8 @@
 
 package com.rpg.combate;
 
+import com.rpg.personagem.Combatente;
+
 public class EnxuradaDeGolpes implements AcaoDeCombate {
     private String nomeAtaque;
     private double sorte;

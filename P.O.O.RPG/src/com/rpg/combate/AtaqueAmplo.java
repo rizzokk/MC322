@@ -2,6 +2,8 @@
 
 package com.rpg.combate;
 
+import com.rpg.personagem.Combatente;
+
 public class AtaqueAmplo implements AcaoDeCombate {
     private String nomeAtaque;
     public AtaqueAmplo(String nomeAtaque) {

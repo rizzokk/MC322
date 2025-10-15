@@ -6,7 +6,6 @@ package com.rpg.personagem;
 import java.util.ArrayList;
 import java.util.Random;
 import com.rpg.itens.*;
-import com.rpg.combate.Combatente;
 
 public abstract class Monstro extends Personagem implements Lootavel{
     private int xpConcedido;
