@@ -2,10 +2,11 @@ package com.rpg.util;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.io.InputStream;
 
 public class InputManager {
     
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     
     public static int LerInteiro (String mensagem, int min, int max) {
         while (true) {
@@ -65,6 +66,10 @@ public class InputManager {
 
     public static void fecharScanner(){
     scanner.close();
+    }
+
+    public static void reinicializarScanner(InputStream novoInput) {
+        scanner = new Scanner(novoInput);
     }
 
 }

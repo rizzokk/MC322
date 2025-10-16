@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rpg.exceptions.ExcecoesTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-10-16T11:54:35" hostname="rizzo-IdeaPad-3-15ALC6" time="0.005">
+  <properties/>
+  <testcase name="testVerificarEsqueleto_Excecao()" classname="com.rpg.exceptions.ExcecoesTest" time="0.002"/>
+  <testcase name="testVerificarMonge_Excecao()" classname="com.rpg.exceptions.ExcecoesTest" time="0.002"/>
+  <system-out><![CDATA[O Monstro não existia, então foi criado um novo Monstro da classe Monstro de nivel Dificuldade FACIL
+O heroi não existia, então foi criado um novo heroi da classe monge de nivel 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

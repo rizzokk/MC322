@@ -12,10 +12,16 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		// Inicializa o gerador de fases
 		GeradorDeFases gerador = new ConstrutorDeCenarioFixo(3);
+
+		// Escolhe a dificuldade inicial
 		Dificuldade dificuldadeFase = MenuPrincipal.MenuInicial();
+
+		// Gera as fases do jogo
 		ArrayList<FaseDeCombate> fases = gerador.gerar(3, dificuldadeFase);
-		
+
+		// Cria o herói principal
 		Monge monge = new Monge("Shang Chi", 100, 20, 1, 0);
 		monge = VerificarMonge.VerificarExistencia(monge);
 		

@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['P.O.O.RPG/src']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['P.O.O.RPG/test']
+        }
+    }
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    reports {
+        html.required.set(true)
+    }
+}

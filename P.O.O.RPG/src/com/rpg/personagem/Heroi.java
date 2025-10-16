@@ -66,4 +66,8 @@ public abstract class Heroi extends Personagem{
     }
     
     public abstract void usarHabilidadeEspecial(Personagem alvo);
+
+	public int getPontosDeVida() {
+		return super.getPontosDeVida();
+	}
 }

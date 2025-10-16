@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rpg.cenario.DificuldadeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-16T11:54:35" hostname="rizzo-IdeaPad-3-15ALC6" time="0.002">
+  <properties/>
+  <testcase name="testDificuldadeAumentaPontosDeVida()" classname="com.rpg.cenario.DificuldadeTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

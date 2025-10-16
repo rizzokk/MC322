@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rpg.util.InputManagerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-10-16T11:54:35" hostname="rizzo-IdeaPad-3-15ALC6" time="0.027">
+  <properties/>
+  <testcase name="testLerSimNao_ValidInput()" classname="com.rpg.util.InputManagerTest" time="0.023"/>
+  <testcase name="testLerString_ValidInput()" classname="com.rpg.util.InputManagerTest" time="0.003"/>
+  <system-out><![CDATA[Deseja continuar? (s/n): Digite uma palavra: ]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

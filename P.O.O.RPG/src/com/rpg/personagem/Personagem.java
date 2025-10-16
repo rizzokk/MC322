@@ -72,6 +72,10 @@ public abstract class Personagem implements Combatente{
 		this.forca = forca;
 	}
 
+	public int getPontosDeVida() {
+    return this.pontosDeVida;
+	}
+
 	public boolean estaVivo(Personagem alvo) {
 		if (alvo.pontosDeVida > 0) {
 			return true;

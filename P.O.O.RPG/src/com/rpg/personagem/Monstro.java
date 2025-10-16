@@ -31,6 +31,10 @@ public abstract class Monstro extends Personagem implements Lootavel{
 		return xpConcedido;
 	}
 
+	public int getPontosDeVida() {
+		return super.getPontosDeVida();
+	}
+
     public Arma largarArma() {
         Random numeroRandom = new Random();
         Arma armaSorteada = listaDeArmasParaLargar.get(numeroRandom.nextInt(listaDeArmasParaLargar.size()-1));

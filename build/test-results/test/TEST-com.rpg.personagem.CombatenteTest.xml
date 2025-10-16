@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rpg.personagem.CombatenteTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-10-16T11:54:35" hostname="rizzo-IdeaPad-3-15ALC6" time="0.004">
+  <properties/>
+  <testcase name="testMonstroLootavel()" classname="com.rpg.personagem.CombatenteTest" time="0.002"/>
+  <testcase name="testHeroiReceberDano()" classname="com.rpg.personagem.CombatenteTest" time="0.001"/>
+  <system-out><![CDATA[O Monstro deixou cair Cajado de Arvore Ancestral
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
